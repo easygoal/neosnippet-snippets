@@ -17,7 +17,7 @@ snippet module
 alias mod
 abbr module () ... endmodule
     module ${1:`expand("%:r")`}(
-        ${2:TARGET}
+        /*AUTOARG*/${2:TARGET}
     );
     endmodule
 
@@ -155,4 +155,15 @@ abbr $display("...", ...);
 snippet strobe
 abbr $strobe("...", ...);
   $strobe("${1}", ${2});
+
+snippet head
+  //
+  // File: ${1:`expand('%:t')`}
+  // Created: ${2:`strftime("%c")`}
+  // Description: ${3:blablabla}
+  // Revision: ${4:listed below}
+  //
+
+snippet rev
+  // `strftime("%c")`: ${1:created}
 
